@@ -12,7 +12,7 @@
     "@aztec/bb.js": "0.82.2",
     "@noble/ed25519": "^2.2.3",
     "@noble/hashes": "^1.7.1",
-    "@noir-lang/noir_js": "^1.0.0-beta.3",
+    "@noir-lang/noir_js": "1.0.0-beta.3",
     "@reacticons/ionicons": "^7.1.0",
     "@supabase/supabase-js": "^2.45.4",
     "@uidotdev/usehooks": "^2.4.1",

@@ -90,10 +90,16 @@ export const JWTCircuitHelper = {
         "[JWT Circuit] Proof verification failed: invalid public inputs"
       );
     }
+    
+    console.log("Before verifier init");
 
     const { BarretenbergVerifier } = await initVerifier();
 
+    console.log("After verifier init");
+
     const vkey = await import(`../../assets/jwt/circuit-vkey.json`);
+
+    console.log("After vkey import");
 
     // Public Inputs = pubkey_limbs(18) + domain(64) + ephemeral_pubkey(1) + ephemeral_pubkey_expiry(1) = 84
     const publicInputs = [];
@@ -125,9 +131,16 @@ export const JWTCircuitHelper = {
       publicInputs,
     };
 
+    console.log("After getting proofData");
+
+    console.log("TEMP_DIR:", process.env.TEMP_DIR);
+    
     const verifier = new BarretenbergVerifier({
       crsPath: process.env.TEMP_DIR,
     });
+
+    console.log("Before verifier.verifyUltraHonkProof");
+
     const result = await verifier.verifyUltraHonkProof(
       proofData,
       Uint8Array.from(vkey)
